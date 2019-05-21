@@ -10,12 +10,6 @@
         --font-weight: 300;
       }
 
-      form-task {
-        --task-input: {
-          transition: 1s ease;
-        }
-      }
-
       .form {
         display: flex;
         flex-wrap: wrap;
@@ -43,15 +37,10 @@
         text-transform: uppercase;
         font-size: var(--font-size);
         margin-left: 0.2rem;
-        @apply --task-input;
         cursor: pointer;
       }
 
 
-
-      .form__send:hover {
-        transform: rotate(360deg);
-      }
     </style>
     <form action="" class="form" on-submit="clickForm">
       <label for="" class="form__label">[[textLabel]]</label>
@@ -78,15 +67,15 @@
         return {
           textLabel: {
             type: String,
-            value: 'texto label dsf'
+            value: 'Texto dinamico de Label'
           },
           inputPlaceholder: {
             type: String,
-            value: 'Pon algo aquí f sd'
+            value: 'Texto dinamico de placeholder'
           },
           textButton: {
             type: String,
-            value: 'Enviarr'
+            value: 'Enviar'
           },
           description: {
             type: String,
