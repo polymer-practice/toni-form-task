@@ -4,10 +4,58 @@
   <template>
     <style>
       :host {
-        display: block;
+        --primary-color: #b3ff00;
+        --secundary-color: #ffffff;
+        --font-size: 15px;
+        --font-weight: 300;
+        --task-input:{
+          transition: 1s ease;
+        }
       }
+
+      .form{
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .form__label{
+        margin-bottom: 0.5rem;
+        width: 100%;
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+      }
+
+      .form__input{
+        background: var(--primary-color);
+        box-shadow: none;
+        border: none;
+        padding: 5px 12px;
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+      }
+
+      .form__send{
+        border: none;
+        padding: 6px 9px;
+        text-transform: uppercase;
+        font-size: var(--font-size);
+        margin-left: 0.2rem;
+        @apply --task-input;
+        cursor: pointer;
+      }
+
+
+
+      .form__send:hover{
+        transform: rotate(360deg);
+      }
+
     </style>
-    <h2>Hello [[prop1]]!</h2>
+      <form action="" class="form">
+        <label for="" class="form__label">Input text</label>
+        <input type="text" class="form__input" placeholder="Pon algo aquí">
+        <input type="submit" value="Enviar" class="form__send">
+      </form>
   </template>
 
   <script>
