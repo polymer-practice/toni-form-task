@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="form-task">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `form-task`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FormTask extends Polymer.Element {
+      static get is() { return 'form-task'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'Holaa'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(FormTask.is, FormTask);
+  </script>
+</dom-module>
