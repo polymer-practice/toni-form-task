@@ -10,25 +10,25 @@
         --font-weight: 300;
       }
 
-      form-task{
-        --task-input:{
+      form-task {
+        --task-input: {
           transition: 1s ease;
         }
       }
 
-      .form{
+      .form {
         display: flex;
         flex-wrap: wrap;
       }
 
-      .form__label{
+      .form__label {
         margin-bottom: 0.5rem;
         width: 100%;
         font-size: var(--font-size);
         font-weight: var(--font-weight);
       }
 
-      .form__input{
+      .form__input {
         background: var(--primary-color);
         box-shadow: none;
         border: none;
@@ -37,7 +37,7 @@
         font-weight: var(--font-weight);
       }
 
-      .form__send{
+      .form__send {
         border: none;
         padding: 6px 9px;
         text-transform: uppercase;
@@ -49,16 +49,16 @@
 
 
 
-      .form__send:hover{
+      .form__send:hover {
         transform: rotate(360deg);
       }
-
     </style>
-      <form action="" class="form">
-        <label for="" class="form__label">[[textLabel]]</label>
-        <input type="text" class="form__input" placeholder="[[inputPlaceholder]]">
-        <input type="submit" value="Enviar" class="form__send">
-      </form>
+    <form action="" class="form" on-submit="clickForm">
+      <label for="" class="form__label">[[textLabel]]</label>
+      <input type="text" class="form__input" placeholder="[[inputPlaceholder]]" value="{{description::input}}">
+      <input type="submit" value="[[textButton]]" class="form__send">
+    </form>
+    <div>[[description]]</div>
   </template>
 
   <script>
@@ -71,7 +71,9 @@
      * @demo demo/index.html
      */
     class FormTask extends Polymer.Element {
-      static get is() { return 'form-task'; }
+      static get is() {
+        return 'form-task';
+      }
       static get properties() {
         return {
           textLabel: {
@@ -81,8 +83,32 @@
           inputPlaceholder: {
             type: String,
             value: 'Pon algo aquí f sd'
+          },
+          textButton: {
+            type: String,
+            value: 'Enviarr'
+          },
+          description: {
+            type: String,
+            value: ''
           }
         };
+      }
+
+      /*Methods*/
+      clickForm(e) {
+        e.preventDefault()
+        let customEvent = new CustomEvent(
+          'my-event',
+          {
+            bubbles: true,
+            composed: true,
+            detail:{
+              description: this.description
+            }
+          }
+        );
+        this.dispatchEvent(customEvent)
       }
     }
 

@@ -22,9 +22,14 @@
       <h3>Basic form-task demo</h3>
       <demo-snippet>
         <template>
-          <form-task></form-task>
+          <form-task id="formTask"></form-task>
         </template>
       </demo-snippet>
     </div>
+    <script>
+      document.querySelector('#formTask').addEventListener( 'my-event', function(e){
+        console.log(e.detail);
+      })
+    </script>
   </body>
 </html>
