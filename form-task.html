@@ -55,8 +55,8 @@
 
     </style>
       <form action="" class="form">
-        <label for="" class="form__label">Input text</label>
-        <input type="text" class="form__input" placeholder="Pon algo aquí">
+        <label for="" class="form__label">[[textLabel]]</label>
+        <input type="text" class="form__input" placeholder="[[inputPlaceholder]]">
         <input type="submit" value="Enviar" class="form__send">
       </form>
   </template>
@@ -74,9 +74,13 @@
       static get is() { return 'form-task'; }
       static get properties() {
         return {
-          prop1: {
+          textLabel: {
             type: String,
-            value: 'Holaa'
+            value: 'texto label dsf'
+          },
+          inputPlaceholder: {
+            type: String,
+            value: 'Pon algo aquí f sd'
           }
         };
       }
